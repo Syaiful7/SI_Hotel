@@ -28,10 +28,36 @@ class UserGroup extends Seeder
                 'description'	=> 'Mengelompokkan Owner menjadi satu',
             ],
         ];
-    foreach ($data_groups as $key) {
-        $this->db->table('auth_groups')->insert($key);
-    }
-    // Tabel Auth Groups Done
+        foreach ($data_groups as $key) {
+            $this->db->table('auth_groups')->insert($key);
+        }
+        // Tabel Auth Groups Done
+        // Tabel Users
+        $data_user =
+        [
+            [
+                'email'            => 'admin@hotel.com',
+                'username'         => 'admin',
+                'password_hash'    => password_hash('1029384756', PASSWORD_DEFAULT),
+                'active'           => 1
+            ],
+        ];
+        foreach ($data_user as $key) {
+        $this->db->table('users')->insert($key);
+        }
+        // tabel users done
 
+        // Tabel auth_groups_users
+        $data_auth_groups_users =
+			[
+				[
+					'group_id'	=> ($this->db->table('auth_groups')->where("name", "Admin")->get()->getFirstRow())->id,
+					'user_id'         => ($this->db->table('users')->where("username", "admin")->get()->getFirstRow())->id,
+				],
+			];
+		foreach ($data_auth_groups_users as $key) {
+			$this->db->table('auth_groups_users')->insert($key);
+		}
+		// tabel auth_groups_users done
     }
 }

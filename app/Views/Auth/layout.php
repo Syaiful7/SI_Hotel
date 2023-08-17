@@ -32,13 +32,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0/css/adminlte.min.css">
 </head>
 
-<body>
+<body class="login-page">
 
-    <?= view('App\Views\Auth\_navbar') ?>
 
-    <main role="main" class="container">
-        <?= $this->renderSection('main') ?>
-    </main><!-- /.container -->
+    <?= $this->renderSection('main') ?>
 
 
     <!-- Bootstrap core JavaScript
