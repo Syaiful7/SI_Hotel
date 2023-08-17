@@ -19,6 +19,14 @@ class UserGroup extends Seeder
                 'name'			=> 'Admin',
                 'description'	=> 'Mengelompokkan Admin menjadi satu',
             ],
+            [
+                'name'			=> 'Resepsionis',
+                'description'	=> 'Mengelompokkan Resepsionis menjadi satu',
+            ],
+            [
+                'name'			=> 'Owner',
+                'description'	=> 'Mengelompokkan Owner menjadi satu',
+            ],
         ];
     foreach ($data_groups as $key) {
         $this->db->table('auth_groups')->insert($key);
