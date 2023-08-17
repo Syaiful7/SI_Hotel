@@ -38,7 +38,7 @@ class UserGroup extends Seeder
             [
                 'email'            => 'admin@hotel.com',
                 'username'         => 'admin',
-                'password_hash'    => password_hash('1029384756', PASSWORD_DEFAULT),
+                'password_hash'    => password_hash('Tugas1234', PASSWORD_BCRYPT),
                 'active'           => 1
             ],
         ];

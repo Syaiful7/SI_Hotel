@@ -12,7 +12,7 @@
 
             <?= view('App\Views\Auth\_message_block') ?>
 
-            <form action="<?= route_to('/') ?>" method="post">
+            <form action="<?= url_to('login') ?>" method="post">
                 <?= csrf_field() ?>
                 <?php if ($config->validFields === ['email']): ?>
                 <div class="input-group mb-3">
