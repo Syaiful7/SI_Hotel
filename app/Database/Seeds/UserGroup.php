@@ -32,7 +32,8 @@ class UserGroup extends Seeder
             ],
         ];
         foreach ($data_groups as $key) {
-            $this->db->table('auth_groups')->insert($key);
+            $auth = service('authorization');
+            $auth->createGroup($key['name'], $key['description']);
         }
         // Tabel Auth Groups Done
         // Tabel Users
@@ -45,20 +46,53 @@ class UserGroup extends Seeder
             ];
             $user = new User($data_user);
             $users = model(UserModel::class);
-            $users->insert($user);
+            $users->withGroup('Admin')->insert($user);
         // tabel users done
 
-        // Tabel auth_groups_users
-        $data_auth_groups_users =
-			[
-				[
-					'group_id'	=> ($this->db->table('auth_groups')->where("name", "Admin")->get()->getFirstRow())->id,
-					'user_id'         => ($this->db->table('users')->where("username", "admin")->get()->getFirstRow())->id,
-				],
-			];
-		foreach ($data_auth_groups_users as $key) {
-			$this->db->table('auth_groups_users')->insert($key);
-		}
-		// tabel auth_groups_users done
+        $tipe_kamar =
+        [
+            [
+                'nama' => 'Deluxe',
+                'harga' => 150000,
+            ],
+            [
+                'nama' => 'Suite',
+                'harga' => 100000,
+            ],
+        ];
+        foreach ($tipe_kamar as $key) {
+            $tipeKamarModel = model('TipeKamarModel', false);
+            $tipeKamarModel->insert($key);
+        }
+        
+        $tipeKamarModel = model('TipeKamarModel', false);
+            
+        $kamar =
+        [
+            [
+                'no' => '1',
+                'tipe_kamar_id' => $tipeKamarModel->where('nama', 'Deluxe')->first()['id'],
+            ],
+            [
+                'no' => '2',
+                'tipe_kamar_id' => $tipeKamarModel->where('nama', 'Deluxe')->first()['id'],
+            ],
+            [
+                'no' => '3',
+                'tipe_kamar_id' => $tipeKamarModel->where('nama', 'Suite')->first()['id'],
+            ],
+            [
+                'no' => '4',
+                'tipe_kamar_id' => $tipeKamarModel->where('nama', 'Suite')->first()['id'],
+            ],
+            [
+                'no' => '5',
+                'tipe_kamar_id' => $tipeKamarModel->where('nama', 'Suite')->first()['id'],
+            ],
+        ];
+        foreach ($kamar as $key) {
+            $kamarModel = model('KamarModel', false);
+            $kamarModel->insert($key);
+        }
     }
 }

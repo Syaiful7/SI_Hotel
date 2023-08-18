@@ -5,3 +5,7 @@
 5. masukkan perintah "php spark migrate:refresh"
 5. masukkan perintah "php spark db:seed UserGroup"
 6. jalankan server "php spark serve"
+
+default admin
+user : admin@hotel.com
+password : Tugas1234

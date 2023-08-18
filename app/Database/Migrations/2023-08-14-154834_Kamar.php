@@ -19,13 +19,13 @@ class Kamar extends Migration
 
 		$this->forge->addKey('id', true);
 		$this->forge->addUniqueKey('no');
-        $this->forge->addForeignKey('tipe_kamar_id', 'tipe_kamar', 'id', '', 'CASCADE');
+        $this->forge->addForeignKey('tipe_kamar_id', 'm_tipe_kamar', 'id', '', 'CASCADE');
 
-		$this->forge->createTable('kamar', true);
+		$this->forge->createTable('m_kamar', true);
     }
 
     public function down()
     {
-        $this->forge->dropTable('kamar');
+        $this->forge->dropTable('m_kamar');
     }
 }

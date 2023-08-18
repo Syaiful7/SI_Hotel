@@ -19,68 +19,56 @@
     <section class="content">
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
-            <div class="row">
-                <div class="col-lg-3 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                            <h3>150</h3>
+            <!-- <div class="row"> -->
+            <?php foreach ($tipe_kamar_model->findAll() as $key) : ?>
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title"><?= $key['nama']; ?></h5>
 
-                            <p>Total Kamar</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-bag"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
                     </div>
                 </div>
-                <!-- ./col -->
-                <div class="col-lg-3 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-success">
-                        <div class="inner">
-                            <h3>53</h3>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <!-- small box -->
+                            <div class="small-box bg-info">
+                                <div class="inner">
+                                    <h3><?= $kamar_model->where('tipe_kamar_id',$key['id'])->countAllResults()?></h3>
 
-                            <p>Kamar Kosong</p>
+                                    <p>Total Kamar</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="icon">
-                            <i class="ion ion-stats-bars"></i>
+                        <!-- ./col -->
+                        <div class="col">
+                            <!-- small box -->
+                            <div class="small-box bg-success">
+                                <div class="inner">
+                                    <h3>53</h3>
+
+                                    <p>Kamar Kosong</p>
+                                </div>
+                            </div>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <!-- ./col -->
                     </div>
                 </div>
-                <!-- ./col -->
-                <div class="col-lg-3 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-warning">
-                        <div class="inner">
-                            <h3>44</h3>
-
-                            <p>User Registrations</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-person-add"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                    </div>
+                <!-- ./card-body -->
+                <div class="card-footer">
+                    footer
                 </div>
-                <!-- ./col -->
-                <div class="col-lg-3 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-danger">
-                        <div class="inner">
-                            <h3>65</h3>
-
-                            <p>Unique Visitors</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-pie-graph"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <!-- ./col -->
+                <!-- /.card-footer -->
             </div>
+            <!-- /.card -->
+            <?php endforeach; ?>
+            <!-- </div> -->
+
+
         </div>
         <!-- /.container-fluid -->
 

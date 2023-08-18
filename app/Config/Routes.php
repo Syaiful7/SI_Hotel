@@ -31,6 +31,9 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/coba', 'Home::coba');
+$routes->group("resepsionis",  function ($routes) {
+	$routes->get('/', 'Resepsionis::index', ['as' => 'resepsionis.dasboard']);
+});
 
 /*
  * --------------------------------------------------------------------

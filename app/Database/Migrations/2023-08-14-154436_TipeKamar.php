@@ -20,11 +20,11 @@ class TipeKamar extends Migration
 		$this->forge->addKey('id', true);
 		$this->forge->addUniqueKey('nama');
 
-		$this->forge->createTable('tipe_kamar', true);
+		$this->forge->createTable('m_tipe_kamar', true);
     }
 
     public function down()
     {
-        $this->forge->dropTable('tipe_kamar');
+        $this->forge->dropTable('m_tipe_kamar');
     }
 }
