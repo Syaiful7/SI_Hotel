@@ -1,0 +1,7 @@
+1. copy "env" menjadi ".env"
+2. setting ".env"(database) sesuai dengan yang diinginkan
+3. buka terminal
+4. masukkan perintah "composer install"
+5. masukkan perintah "php spark migrate:refresh"
+5. masukkan perintah "php spark db:seed UserGroup"
+6. jalankan server "php spark serve"
