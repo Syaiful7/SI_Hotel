@@ -2,6 +2,9 @@
 
 namespace App\Database\Seeds;
 
+use App\Entities\User;
+use App\Models\UserModel;
+use CodeIgniter\I18n\Time;
 use CodeIgniter\Database\Seeder;
 
 class UserGroup extends Seeder
@@ -34,17 +37,15 @@ class UserGroup extends Seeder
         // Tabel Auth Groups Done
         // Tabel Users
         $data_user =
-        [
             [
                 'email'            => 'admin@hotel.com',
                 'username'         => 'admin',
-                'password_hash'    => password_hash('Tugas1234', PASSWORD_BCRYPT),
-                'active'           => 1
-            ],
-        ];
-        foreach ($data_user as $key) {
-        $this->db->table('users')->insert($key);
-        }
+                'password'          => 'Tugas1234',
+                'active'           => 1,
+            ];
+            $user = new User($data_user);
+            $users = model(UserModel::class);
+            $users->insert($user);
         // tabel users done
 
         // Tabel auth_groups_users
