@@ -11,6 +11,7 @@ class TipeKamar extends Migration
         $this->forge->addField([
 			'id'			=> ['type' => 'int', 'constraint' => 11, 'unsigned' => true, 'auto_increment' => true],
 			'nama'			=> ['type' => 'varchar', 'constraint' => 255],
+			'deskripsi'     => ['type' => 'varchar', 'constraint' => 255],
             'harga'         => ['type' => 'int', ],
 			'created_at'	=> ['type' => 'datetime', 'null' => true],
 			'updated_at'	=> ['type' => 'datetime', 'null' => true],

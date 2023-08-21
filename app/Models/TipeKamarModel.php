@@ -13,6 +13,7 @@ class TipeKamarModel extends Model
     protected $useSoftDeletes   = true;
     protected $allowedFields    = [
         'nama',
+        'deskripsi',
         'harga',
     ];
 

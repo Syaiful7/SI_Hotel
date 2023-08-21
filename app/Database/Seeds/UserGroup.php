@@ -52,11 +52,18 @@ class UserGroup extends Seeder
         $tipe_kamar =
         [
             [
-                'nama' => 'Deluxe',
+                'nama' => 'Deluxe Room',
+                'deskripsi' => 'Deluxe',
+                'harga' => 200000,
+            ],
+            [
+                'nama' => 'Double Suite',
+                'deskripsi' => 'Suite',
                 'harga' => 150000,
             ],
             [
-                'nama' => 'Suite',
+                'nama' => 'Single Room',
+                'deskripsi' => 'Single',
                 'harga' => 100000,
             ],
         ];
@@ -71,23 +78,35 @@ class UserGroup extends Seeder
         [
             [
                 'no' => '1',
-                'tipe_kamar_id' => $tipeKamarModel->where('nama', 'Deluxe')->first()['id'],
+                'tipe_kamar_id' => $tipeKamarModel->where('nama', 'Deluxe Room')->first()['id'],
             ],
             [
                 'no' => '2',
-                'tipe_kamar_id' => $tipeKamarModel->where('nama', 'Deluxe')->first()['id'],
+                'tipe_kamar_id' => $tipeKamarModel->where('nama', 'Deluxe Room')->first()['id'],
             ],
             [
                 'no' => '3',
-                'tipe_kamar_id' => $tipeKamarModel->where('nama', 'Suite')->first()['id'],
+                'tipe_kamar_id' => $tipeKamarModel->where('nama', 'Double Suite')->first()['id'],
             ],
             [
                 'no' => '4',
-                'tipe_kamar_id' => $tipeKamarModel->where('nama', 'Suite')->first()['id'],
+                'tipe_kamar_id' => $tipeKamarModel->where('nama', 'Double Suite')->first()['id'],
             ],
             [
                 'no' => '5',
-                'tipe_kamar_id' => $tipeKamarModel->where('nama', 'Suite')->first()['id'],
+                'tipe_kamar_id' => $tipeKamarModel->where('nama', 'Double Suite')->first()['id'],
+            ],
+            [
+                'no' => '6',
+                'tipe_kamar_id' => $tipeKamarModel->where('nama', 'Single Room')->first()['id'],
+            ],
+            [
+                'no' => '7',
+                'tipe_kamar_id' => $tipeKamarModel->where('nama', 'Single Room')->first()['id'],
+            ],
+            [
+                'no' => '8',
+                'tipe_kamar_id' => $tipeKamarModel->where('nama', 'Single Room')->first()['id'],
             ],
         ];
         foreach ($kamar as $key) {

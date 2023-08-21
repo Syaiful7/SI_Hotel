@@ -9,6 +9,7 @@ class Resepsionis extends BaseController
     public function index()
     {
         $tipeKamarModel = model('TipeKamarModel', false);
+        $tipeKamar = $tipeKamarModel->findAll();
         $kamarModel = model('KamarModel', false);
 
         $data = [
